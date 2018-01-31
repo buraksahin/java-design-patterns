@@ -3,12 +3,12 @@ import java.util.Properties;
 
 public class LoggerFactory{
 
-	/*	Logger Factory Method Return FileLogger or ScreenLogger
+	/*  Logger Factory Method Return FileLogger or ScreenLogger
 	 *  as filelogger.properties settings
 	 */
-	public Logger getLogger() {
+	public Logger getLogger(){
         // Check FileWrite properties
-		if(isFileLoggingEnabled()){
+        if(isFileLoggingEnabled()){
             return new FileLogger();
         }
         else{return new ScreenLogger();}
@@ -19,7 +19,7 @@ public class LoggerFactory{
 	 *	if FileWrite properties is OFF return false
 	 */
 	public boolean isFileLoggingEnabled(){
-		Properties propertiesFile = new Properties(); 
+		Properties propertiesFile = new Properties();
 		try{
 			propertiesFile.load(ClassLoader.getSystemResourceAsStream("filelogger.properties"));
 			String fileLoggingValue = propertiesFile.getProperty("FileWrite");
